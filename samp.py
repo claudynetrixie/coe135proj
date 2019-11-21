@@ -26,5 +26,6 @@ for device in iter(monitor.poll, None):
         ctr = ctr + 1
         if (ctr <= 1):
             print("USB Device Removed.\n")
+            cmd2 = subprocess.Popen(["python", "key_detached.py", "-f"])
         else:
             ctr = 0
