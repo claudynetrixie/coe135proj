@@ -1,5 +1,4 @@
 import cryptography
-
 from cryptography.fernet import Fernet
 
 from os import listdir
@@ -10,20 +9,32 @@ import itertools
 
 mypath = "/home/claudyne/Desktop/encrypted"
 
+f = open(mypath + "/!.txt", 'wb')
+f.close 
+
 #Getting Input Files
 input_files = [f for f in listdir(mypath) if isfile (join(mypath,f))]
-num_file = len(input_files)
+
 
 output_files = []
 input_paths = []
 output_paths = []
+ext = []
 
-for i in input_files:
+for i in sorted(input_files):
 	output_files.append((str(os.path.splitext(i)[0])) + '.enc')
 	input_paths.append(mypath +"/" +i)
+	print i
+	ext.append((str(os.path.splitext(i)[1])))
+
+with open(mypath + "/!.txt", 'wb') as f:
+	for item in ext:
+		f.write("%s\n" % item)
+f.close
 
 for i in output_files:
 	output_paths.append(mypath + "/" + i)
+
 
 #Key Generation
 key = Fernet.generate_key()
