@@ -4,6 +4,7 @@ from os.path import expanduser
 import datetime
 import bcrypt
 import os
+import subprocess
 
 arduino = serial.Serial("/dev/ttyUSB0", 9600, timeout = 5, bytesize = serial.EIGHTBITS, parity = serial.PARITY_NONE, stopbits = serial.STOPBITS_ONE, xonxoff = 0, rtscts = 0);
 
@@ -26,7 +27,10 @@ hashed = f.read()
 
 if bcrypt.hashpw(data, hashed) == hashed:
     #put decryption here
-    print("Password matched\n");
+    cmd1 = subprocess.Popen(["python", "file-decryption.py"])
+    cmd2 = subprocess.Popen(["python", "upload_sketch.py"])
+
+    print("Password matched\n")
 else:
     print("Fail")
 
