@@ -17,13 +17,15 @@ for device in iter(monitor.poll, None):
     if device.action == 'add':
         time.sleep(1)
         ctr = ctr + 1
-        print("TRIGGERED " + str(ctr))
-        #print('{} connected'.format(device))
-	    #call(["usr/bin/sudo", "/usr/bin/python", "serial1.py"])
         if (ctr <= 1):
             cmd1 = subprocess.Popen(["python", "serial1.py", "-f"])
-            print("spawned " + str(cmd1) + "\n");
             print('{0} ({1})'.format(device.device_node, device.device_type))
+        else:
+            ctr = 0
+    if device.action == 'remove':
+        ctr = ctr + 1
+        if (ctr <= 1):
+            print("USB Device Removed.\n")
         else:
             ctr = 0
         # do something very interesting here.
