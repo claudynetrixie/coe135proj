@@ -2,7 +2,7 @@ void setup(){
   Serial.begin(9600);
 }
 void loop(){
-  Serial.println("gZc0XaHNpt3R40BN");
+  Serial.println("AHYYGUir7zop7VbT");
 
   delay(1000);
 

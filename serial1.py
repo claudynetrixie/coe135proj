@@ -19,10 +19,15 @@ file.write("Encrypted Key: " + data + " " + str(datetime.datetime.now()) + " " +
 file.close()
 
 data = data.rstrip()
-hashed = "$2a$12$/L.nM21wY05.wVeZSZyIZeI5BYbq5nz9/gzExx6KiNnkja4H93HeS"
-#data = "gZc0XaHNpt3R40BN"
-print("[" + data + "]")
+
+#open config file for checking password_hash
+f = open("config.info", "r")
+hashed = f.read()
+
 if bcrypt.hashpw(data, hashed) == hashed:
-    print("MATCH\n");
+    #put decryption here
+    print("Password matched\n");
 else:
-    print("fail")
+    print("Fail")
+
+#put encryption here

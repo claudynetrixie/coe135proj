@@ -28,5 +28,3 @@ for device in iter(monitor.poll, None):
             print("USB Device Removed.\n")
         else:
             ctr = 0
-        # do something very interesting here.
-	#print('{0} ({1})'.format(device['DEVNAME'], device['DEVTYPE']))

@@ -2,12 +2,12 @@ import os
 import random, string
 import bcrypt
 
+#generates random password
+#edit if you want to change way of generating random password
 password = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in range(16))
 print(password)
 
-
-#print("Password generated:  " + generate_password(50))
-
+#upload new password to key
 with open("test.ino", "r") as file:
     data = file.readlines()
 
@@ -20,7 +20,13 @@ with open('test.ino', 'w') as file:
 salt = bcrypt.gensalt()
 password_hashed = bcrypt.hashpw(password, salt)
 
+#stores hashed password
+f = open("config.info","w+")
+f.write(password_hashed)
+f.close()
 print("Hashed:  " + password_hashed)
 
 cmd = 'arduino --upload [test.ino]'
 os.system(cmd)
+
+print("done")
