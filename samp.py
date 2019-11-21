@@ -16,7 +16,7 @@ for device in iter(monitor.poll, None):
     if device.action == 'add':
         #print('{} connected'.format(device))
 	#call(["usr/bin/sudo", "/usr/bin/python", "serial1.py"])
-	cmd1 = subprocess.Popen(["sudo", "python", "serial1.py", "-f"])
+	cmd1 = subprocess.Popen(["python", "serial1.py", "-f"])
 	print('{0} ({1})'.format(device.device_node, device.device_type))
         # do something very interesting here.
 	#print('{0} ({1})'.format(device['DEVNAME'], device['DEVTYPE']))
