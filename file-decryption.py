@@ -11,7 +11,7 @@ mypath = "/home/claudyne/Desktop/encrypted"
 #Getting Input Files
 input_files = [f for f in listdir(mypath) if isfile (join(mypath,f))]
 
-with open("key.key", 'rb') as f:
+with open("/home/claudyne/Desktop/key.key", 'rb') as f:
     key = f.read()
 
 fernet = Fernet(key)

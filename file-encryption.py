@@ -40,7 +40,7 @@ for i in output_files:
 key = Fernet.generate_key()
 print(key)
 #Key Storage
-file = open('key.key', 'wb')
+file = open('/home/claudyne/Desktop/key.key', 'wb')
 file.write(key)
 file.close()
 

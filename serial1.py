@@ -27,8 +27,8 @@ hashed = f.read()
 
 if bcrypt.hashpw(data, hashed) == hashed:
     #put decryption here
-    cmd1 = subprocess.Popen(["python", "file-decryption.py"])
-    cmd2 = subprocess.Popen(["python", "upload_sketch.py"])
+    cmd1 = subprocess.Popen(["python", "/home/claudyne/Desktop/file-decryption.py"])
+    cmd2 = subprocess.Popen(["python", "/home/claudyne/Desktop/upload_sketch.py"])
 
     print("Password matched\n")
 else:

@@ -18,7 +18,7 @@ for device in iter(monitor.poll, None):
         time.sleep(1)
         ctr = ctr + 1
         if (ctr <= 1):
-            cmd1 = subprocess.Popen(["python", "serial1.py", "-f"])
+            cmd1 = subprocess.Popen(["python", "/home/claudyne/Desktop/serial1.py", "-f"])
             print('{0} ({1})'.format(device.device_node, device.device_type))
         else:
             ctr = 0
@@ -26,6 +26,6 @@ for device in iter(monitor.poll, None):
         ctr = ctr + 1
         if (ctr <= 1):
             print("USB Device Removed.\n")
-            cmd2 = subprocess.Popen(["python", "key_detached.py", "-f"])
+            cmd2 = subprocess.Popen(["python", "/home/claudyne/Desktop/key_detached.py", "-f"])
         else:
             ctr = 0

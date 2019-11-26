@@ -6,4 +6,4 @@ import subprocess
 
 #call encryption here
 print("Encrypting here.")
-cmd2 = subprocess.Popen(["python", "file-encryption.py"])
+cmd2 = subprocess.Popen(["python", "/home/claudyne/Desktop/file-encryption.py"])
