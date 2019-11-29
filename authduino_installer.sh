@@ -1,5 +1,4 @@
 #! /bin/sh
-
 unzip Authduino.zip
 remove Authduino.zip
 cp -i -R  Authduino /home/$USER
@@ -8,5 +7,4 @@ mkdir /home/$USER/AuthduinoDocs
 
 sudo cp -i /home/$USER/Authduino/authduino.py /usr/bin
 
-chmod +r /usr/bin/authduino.py
-
+sudo chmod +r /usr/bin/authduino.py
