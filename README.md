@@ -4,7 +4,7 @@ Our CoE 135 Final Project is to use an arduino device as a physical key to gain 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
@@ -59,7 +59,7 @@ $ sudo chown [username] [path/to/file]
 
 
 
-Download Authduino.zip to obtain a copy of the pertinent files for the Arduino authentication. 
+Download Authduino.zip and authduino_installer.sh to obtain a copy of the pertinent files for the Arduino authentication. </br>
 To install, run
 ```
 sh authduino_installer.sh
@@ -72,14 +72,14 @@ Place files that you want to protect inside the directory
 
 ## Running the tests
 
-To test, plug in the Arduino device in a Linux computer.
-Observe that when the device is plugged in the files inside the protected directory are decrypted.
+To test, plug in the Arduino device on a Linux computer. </br>
+Observe that when the device is plugged in, the files inside the protected directory are decrypted. </br>
 
-When the device is plugged out of the computer, the protected directory encrypts the files.
+When the device is plugged out of the computer, the protected directory now has encrypted files.
 
 ### Further Tests
 
-If the files are not being encrypted or decrypted, this can be tested by checking the status of the authduino service.
+If the files are not being encrypted or decrypted, this can be debugged by checking the status of the authduino service. </br>
 To do this, run
 ```
 sudo systemctl status authduino.service
