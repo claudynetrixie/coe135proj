@@ -11,65 +11,80 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
+Python 
+Python PIP
 PySerial python library
 PyUdev python library 
+Bcrypt python library
+Arduino IDE
 ```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Download pySerial and pyUdev python libraries
-
+Download python prerequisites using the following commands:
 ```
-Give the example
+sudo apt install python
+```
+```
+sudo apt install python-pip
+```
+```
+sudo pip install pyudev
+```
+```
+sudo pip install pyserial
+```
+```
+sudo pip install bcrypt
 ```
 
-And repeat
 
+
+Download Arduino IDE
 ```
-until finished
+$ tar –xf [Compressed-filename]
+```
+```
+$ cd [Uncompressed-foldername]
+```
+```
+$ sudo ./install.sh
+```
+```
+$ sudo chown [username] [path/to/file]
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+
+
+
+Download Authduino.zip to obtain a copy of the pertinent files for the Arduino authentication. 
+To install, run
+```
+sh authduino_installer.sh
+```
+
+Place files that you want to protect inside the directory
+```
+/home/$USER/AuthduinoDocs
+```
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+To test, plug in the Arduino device in a Linux computer.
+Observe that when the device is plugged in the files inside the protected directory are decrypted.
 
-### Break down into end to end tests
+When the device is plugged out of the computer, the protected directory encrypts the files.
 
-Explain what these tests test and why
+### Further Tests
 
+If the files are not being encrypted or decrypted, this can be tested by checking the status of the authduino service.
+To do this, run
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+sudo systemctl status authduino.service
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
@@ -77,12 +92,3 @@ Philippe Ivan S. Balucan 2016-01355
 Claudyne Trixie G. Uy 2016-01189
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the license
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
