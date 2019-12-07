@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env
 unzip Authduino.zip
 remove Authduino.zip
 cp -i -R  Authduino /home/$USER
@@ -10,6 +10,9 @@ sudo cp -i /home/$USER/Authduino/authduino.py /usr/bin
 sudo chmod +r /usr/bin/authduino.py
 
 echo $USER
+
+sudo usermod -aG dialout $USER
+sudo usermod -aG tty $USER
 
 echo "[Unit]" >> authduino.service
 echo "Description=Dummy Service" >> authduino.service
