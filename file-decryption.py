@@ -6,17 +6,23 @@ from os.path import isfile, join
 
 import os
 import itertools
+import pwd
 
-mypath = "/home/claudyne/Desktop/encrypted"
+print("Starting decryption of files.\n")
+user = str(pwd.getpwuid(os.getuid())[0])
+
+mypath = "/home/" + user + "/AuthduinoDocs"
 #Getting Input Files
 input_files = [f for f in listdir(mypath) if isfile (join(mypath,f))]
 
-with open("/home/claudyne/Desktop/key.key", 'rb') as f:
+print("input files:\n")
+print(sorted(input_files))
+with open("/home/" + user + "/Authduino/key.key", 'rb') as f:
     key = f.read()
 
 fernet = Fernet(key)
 
-with open(mypath + "/" + input_files[0], 'rb') as f:
+with open(mypath + "/" + sorted(input_files)[0], 'rb') as f:
     ext_log = f.read()
 
 
@@ -38,8 +44,7 @@ for (i,x) in zip(sorted(input_files), enc_ext_list):
 for i in output_files:
 	output_paths.append(mypath + "/" + i)
 
-input_file = '/home/claudyne/Desktop/encrypted/ext.enc'
-output_file = 'ext.txt'
+print (output_paths)
 
 data = []
 encrypted = []
