@@ -1,7 +1,8 @@
 #! /usr/bin/env
-unzip Authduino.zip
-remove Authduino.zip
+mkdir Authduino
+unzip Authduino.zip -d Authduino
 cp -i -R  Authduino /home/$USER
+rm -rf Authduino
 cd /home/$USER/Authduino
 mkdir /home/$USER/AuthduinoDocs
 
