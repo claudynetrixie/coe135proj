@@ -53,10 +53,14 @@ $ cd [Uncompressed-foldername]
 $ sudo ./install.sh
 ```
 ```
-$ sudo chown [username] [path/to/file]
+$ reboot
 ```
-
-
+```
+$ arduino
+```
+Set the serial port of the Arduino in the Tools tab of the Arduino IDE. </br>
+Make sure that the device is plugged in. </br>
+Once this is done, the Arduino IDE can be closed. </br>
 
 
 Download Authduino.zip and authduino_installer.sh to obtain a copy of the pertinent files for the Arduino authentication. </br>
