@@ -8,18 +8,21 @@ import os
 import itertools
 import pwd
 
+print("Starting decryption of files.\n")
 user = str(pwd.getpwuid(os.getuid())[0])
 
 mypath = "/home/" + user + "/AuthduinoDocs"
 #Getting Input Files
 input_files = [f for f in listdir(mypath) if isfile (join(mypath,f))]
 
+print("input files:\n")
+print(sorted(input_files))
 with open("/home/" + user + "/Authduino/key.key", 'rb') as f:
     key = f.read()
 
 fernet = Fernet(key)
 
-with open(mypath + "/" + input_files[0], 'rb') as f:
+with open(mypath + "/" + sorted(input_files)[0], 'rb') as f:
     ext_log = f.read()
 
 
@@ -59,3 +62,11 @@ for (i,x) in zip(output_paths, encrypted):
 
 for i in input_paths:
     os.remove(i)
+
+#Key Generation
+key = Fernet.generate_key()
+print(key)
+#Key Storage
+file = open('/home/' + user + '/Authduino/key.key', 'wb')
+file.write(key)
+file.close()

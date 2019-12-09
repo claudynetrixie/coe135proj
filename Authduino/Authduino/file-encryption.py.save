@@ -41,7 +41,6 @@ for i in output_files:
 
 #Key Generation
 key = Fernet.generate_key()
-print(key)
 #Key Storage
 file = open('/home/' + user + '/Authduino/key.key', 'wb')
 file.write(key)
